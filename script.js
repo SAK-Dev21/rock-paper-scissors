@@ -1,25 +1,59 @@
-// NOTE: I have used console.log() instead of normal returns as this is an early version of this project. V1 will orient around the console and V2 will utilise a GUI more.
+// NOTE: I have used console.log() alongside return statements for testing.
 
 let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-    randomNumber = Math.floor(Math.random() * 3) + 1;
+    const randomNumber = Math.floor(Math.random() * 3) + 1;
     switch (randomNumber) {
         case 1:
             console.log('rock');
-            break;
+            return 'rock';
         case 2:
             console.log('paper');
-            break;
+            return 'paper';
         case 3:
-            console.log('scissors')
-            break;
+            console.log('scissors');
+            return 'scissors';
     }
 }
 
 function getHumanChoice() {
-    choice = prompt("Rock, Paper or Scissors? (Enter in all lower case)", "Enter in all lower case.");
+    choice = prompt("Rock, Paper or Scissors?").toLowerCase();
     console.log(choice);
+    return choice;
 }
 
+function playRound(humanChoice, computerChoice) {
+    const outcome = humanChoice + computerChoice;
+
+    switch (outcome) {
+        case 'rockrock':
+        case 'paperpaper':
+        case 'scissorsscissors':
+            console.log('Tie.');
+            return 'Tie.';                             
+        case 'rockpaper':
+        case 'paperscissors':
+        case 'scissorsrock':
+            console.log(`Computer wins! ${computerChoice} beats ${humanChoice}!`);
+            computerScore += 1;
+            return `Computer wins! ${computerChoice} beats ${humanChoice}!`;
+        case 'rockscissors':
+        case 'paperrock':
+        case 'scissorspaper':
+            console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+            humanScore += 1;
+            return `You win! ${humanChoice} beats ${computerChoice}!`;
+        
+        default:
+            console.log('Invalid game state.');
+            return 'Invalid game state.';
+    }
+
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
