@@ -1,5 +1,8 @@
 // NOTE: I have used console.log() instead of normal returns as this is an early version of this project. V1 will orient around the console and V2 will utilise a GUI more.
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     randomNumber = Math.floor(Math.random() * 3) + 1;
     switch (randomNumber) {
@@ -20,4 +23,3 @@ function getHumanChoice() {
     console.log(choice);
 }
 
-getHumanChoice()
