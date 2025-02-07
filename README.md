@@ -6,7 +6,7 @@ This is a simple **Rock Paper Scissors game** built with **JavaScript**, where a
 ## Features
 - Accepts user input (`rock`, `paper`, or `scissors`).  
 - Randomised computer choice.  
-- Outputs results in the console (win, lose, or draw).  
+- Outputs results in the console (win, lose, or tie).  
 - Loops for multiple rounds (optional on amount but current number is 5).  
 
 ## How to Run the Game*
